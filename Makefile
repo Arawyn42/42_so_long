@@ -6,7 +6,7 @@
 #    By: drenassi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 18:01:57 by drenassi          #+#    #+#              #
-#    Updated: 2023/11/22 20:23:39 by drenassi         ###   ########.fr        #
+#    Updated: 2023/11/27 22:32:39 by drenassi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,9 @@
 
 
 NAME	= so_long
-CC 		= gcc
+CC 		= cc
 CFLAGS	= -Wall -Werror -Wextra -g3
-MLXFLAGS= -L/usr/lib -Lmlx -Imlx -lXext -lX11 -lm -lz
+MLXFLAGS= -lX11 -lXext
 AUTHOR	= drenassi
 DATE	= 09/11/2023
 NOVISU 	= 0 # 1 = no progress bar usefull when tty is not available
@@ -43,8 +43,6 @@ MLX				= minilibx.a
 
 MAIN			= main.c
 
-SRCS_BONUS		= 
-
 ################################################################################
 #                                  MAKEFILE  OBJS                              #
 ################################################################################
@@ -55,7 +53,6 @@ OBJS_PATH			= ./objs
 
 OBJS				= $(addprefix objs/, ${SRCS:$(FILE_EXTENSION)=.o})
 OBJ_MAIN			= $(addprefix objs/, ${MAIN:$(FILE_EXTENSION)=.o})
-OBJS_BONUS			= $(addprefix objs/, ${SRCS_BONUS:$(FILE_EXTENSION)=.o})
 
 ################################################################################
 #                                 MAKEFILE LOGIC                               #

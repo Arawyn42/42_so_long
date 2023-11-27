@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 19:46:56 by drenassi          #+#    #+#             */
-/*   Updated: 2023/11/22 20:59:57 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/11/27 23:13:50 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int		ft_replace_map(t_map map, int res);
 int		ft_check_exit_reachable(t_map map, int x, int y);
 int		ft_check_items_reachable(t_map map, int x, int y, t_items item);
 int		ft_check_completable(t_map map, int x, int y);
+int		ft_check_all_errors(int ac, char **av, t_data *data);
 
 /************************************ MAPS ************************************/
 int		ft_get_map_height(char *file);
@@ -50,6 +51,7 @@ int		ft_get_items_count(t_map map);
 void	ft_set_items_pos(t_map *map);
 char	**ft_get_map(char *file);
 void	ft_init_map(t_map *map, char *file);
+void	ft_get_start(t_map *map);
 void	ft_free_map(t_map *map);
 
 /*********************************** DEBUG ************************************/

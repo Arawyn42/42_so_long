@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:31:52 by drenassi          #+#    #+#             */
-/*   Updated: 2023/11/22 20:29:37 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/11/27 23:14:59 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,16 +113,12 @@ char	**ft_get_map(char *file)
 	return (map);
 }
 
-/************* Initializes a map with start values and item count *************/
-void	ft_init_map(t_map *map, char *file)
+/******** Gets the start position on the map and set it in map struct *********/
+void	ft_get_start(t_map *map)
 {
-	int	x;
-	int	y;
+	int x;
+	int y;
 
-	map->map = ft_get_map(file);
-	map->start.x = -1;
-	map->start.y = -1;
-	ft_set_items_pos(map);
 	y = 0;
 	while (map->map[y])
 	{

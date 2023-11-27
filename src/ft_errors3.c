@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 18:00:48 by drenassi          #+#    #+#             */
-/*   Updated: 2023/11/22 20:51:07 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/11/27 18:21:24 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,17 @@ int	ft_check_completable(t_map map, int x, int y)
 		i++;
 	}
 	return (1);
+}
+
+/***** Inits map and checks all: map errors, if the game is finishable... *****/
+int	ft_check_all_errors(int ac, char **av, t_data *data)
+{
+	if (!ft_args_error(ac))
+		return (exit(EXIT_FAILURE), 0);
+	if (!ft_check_map(av[1]))
+		return (exit(EXIT_FAILURE), 0);
+	ft_init_map(&data->map, av[1]);
+	if (!ft_check_completable(data->map, data->map.start.x, data->map.start.y))
+		return (ft_print_map(data->map), ft_free_map(&data->map), exit(EXIT_FAILURE), 0);
+	return (ft_print_map(data->map), 1);
 }
