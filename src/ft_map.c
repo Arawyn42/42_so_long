@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:31:52 by drenassi          #+#    #+#             */
-/*   Updated: 2023/11/27 23:14:59 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/11/28 17:42:43 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_get_map_height(char *file)
 }
 
 /*************** Counts the number of collectible items on a map **************/
-int	ft_get_items_count(t_map map)
+int	ft_get_items_count(t_map *map)
 {
 	int	x;
 	int	y;
@@ -47,12 +47,12 @@ int	ft_get_items_count(t_map map)
 
 	count = 0;
 	y = 0;
-	while (map.map[y])
+	while (map->map[y])
 	{
 		x = 0;
-		while (map.map[y][x])
+		while (map->map[y][x])
 		{
-			if (map.map[y][x] == 'C')
+			if (map->map[y][x] == 'C')
 				count++;
 			x++;
 		}
@@ -62,14 +62,14 @@ int	ft_get_items_count(t_map map)
 }
 
 /************ Gets and sets collectible items positions in the map ************/
-void	ft_set_items_pos(t_map *map)
+void	ft_get_items_pos(t_map *map)
 {
 	int	x;
 	int	y;
 	int	count;
 
 	count = 0;
-	map->items_count = ft_get_items_count(*map);
+	map->items_count = ft_get_items_count(map);
 	map->items = ft_calloc(map->items_count, sizeof(t_items));
 	if (!map->items)
 		return ;

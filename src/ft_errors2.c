@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 18:31:58 by drenassi          #+#    #+#             */
-/*   Updated: 2023/11/22 20:44:28 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/11/28 17:51:54 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,26 +73,27 @@ int	ft_check_map(char *file)
 }
 
 /****** Replaces the right characters after checking if exit is reachable *****/
-int	ft_replace_map(t_map map, int res)
+int	ft_replace_map(t_map *map, int res)
 {
 	int	x;
 	int	y;
 
 	y = 0;
-	while (map.map[y])
+	while (map->map[y])
 	{
 		x = 0;
-		while (map.map[y][x])
+		while (map->map[y][x])
 		{
-			if (map.map[y][x] == 'X')
-				map.map[y][x] = '0';
-			if (map.map[y][x] == 'Y')
-				map.map[y][x] = 'C';
+			if (map->map[y][x] == 'X')
+				map->map[y][x] = '0';
+			if (map->map[y][x] == 'Y')
+				map->map[y][x] = 'C';
 			x++;
 		}
 		y++;
 	}
-	map.map[map.start.y][map.start.x] = 'P';
+	map->map[map->start.y][map->start.x] = 'P';
+	map->map[map->exit.y][map->exit.x] = 'E';
 	return (res);
 }
 
@@ -102,7 +103,7 @@ int	ft_check_exit_reachable(t_map map, int x, int y)
 	if (x == -1 || y == -1)
 		return (0);
 	if (map.map[y][x] == 'E')
-		return (ft_replace_map(map, 1));
+		return (ft_replace_map(&map, 1));
 	if (map.map[y][x] == 'P' || map.map[y][x] == '0' || map.map[y][x] == 'C')
 	{
 		if (map.map[y][x] == '0' || map.map[y][x] == 'P')

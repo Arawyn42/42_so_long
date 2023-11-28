@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 14:52:07 by drenassi          #+#    #+#             */
-/*   Updated: 2023/11/27 23:47:28 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/11/28 21:17:05 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_put_pixel(t_img img, int x, int y, int color)
 	char	*dest;
 
 	dest = img.addr + (y * img.line_length + x * (img.bits_per_pixel / 8));
-	*(unsigned int*)dest = color;
+	*(unsigned int *)dest = color;
 }
 
 
@@ -45,10 +45,10 @@ void	ft_init_imgs(t_data *data)
 	data->item1.path = "./sprites/item1.xpm";
 	data->item2.path = "./sprites/item2.xpm";
 	data->item3.path = "./sprites/item3.xpm";
-	ft_init_img(data, &data->ground);
-	ft_init_img(data, &data->wall);
-	ft_init_img(data, &data->exit);
-	ft_init_img(data, &data->item1);
+	ft_init_img(data, &(data->ground));
+	ft_init_img(data, &(data->wall));
+	ft_init_img(data, &(data->exit));
+	ft_init_img(data, &(data->item1));
 }
 
 int ft_refresh(t_data *data)
@@ -63,19 +63,21 @@ int ft_refresh(t_data *data)
 		while (data->map.map[y][x])
 		{
 			if (data->map.map[y][x] == '0')
-				ft_print_img(data, &data->ground, x, y);
+				ft_print_img(data, &(data->ground), x, y);
 			else if (data->map.map[y][x] == '1')
-				ft_print_img(data, &data->wall, x, y);
+				ft_print_img(data, &(data->wall), x, y);
 			else if (data->map.map[y][x] == 'C')
-				ft_print_img(data, &data->item1, x, y);
+				ft_print_img(data, &(data->item1), x, y);
 			else if (data->map.map[y][x] == 'E')
-				ft_print_img(data, &data->exit, x, y);
+				ft_print_img(data, &(data->exit), x, y);
 			x++;
 		}
 		y++;
 	}
 	return (1);
 }
+
+
 
 void	ft_create_window(t_data *data, int w, int h)
 {
@@ -85,12 +87,18 @@ void	ft_create_window(t_data *data, int w, int h)
 		return (free(data->mlx));
 	ft_init_imgs(data);
 	mlx_loop_hook(data->mlx, &ft_refresh, data);
+	mlx_hook(data->window, KeyRelease, KeyReleaseMask, &key_pressed, data);
 	mlx_loop(data->mlx);
 }
 
-void	ft_free_mlx()
+void	ft_free_mlx(t_data *data)
 {
-	return ;
+	mlx_destroy_image(data->mlx, data->ground.img) ;
+	
+	mlx_destroy_window(data->mlx, data->window);
+	mlx_destroy_display(data->mlx);
+	free(data->mlx);
+	ft_free(&data->map);
 }
 
 int	main(int ac, char **av)

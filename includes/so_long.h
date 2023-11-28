@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 14:51:25 by drenassi          #+#    #+#             */
-/*   Updated: 2023/11/27 23:35:12 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/11/28 17:38:27 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct	s_map
 {
 	char		**map;
 	t_pos		start;
+	t_pos		exit;
 	int			items_count;
 	t_items		*items;
 	int			width;

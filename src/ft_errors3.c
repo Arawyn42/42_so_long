@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 18:00:48 by drenassi          #+#    #+#             */
-/*   Updated: 2023/11/27 18:21:24 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/11/28 18:23:37 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@
 int	ft_check_items_reachable(t_map map, int x, int y, t_items item)
 {
 	if (map.map[y][x] == 'C' && x == item.pos.x && y == item.pos.y)
-		return (ft_replace_map(map, 1));
-	if (map.map[y][x] == 'P' || map.map[y][x] == '0' || map.map[y][x] == 'C')
+		return (ft_replace_map(&map, 1));
+	if (map.map[y][x] == 'P' || map.map[y][x] == '0' || map.map[y][x] == 'C'
+													|| map.map[y][x] == 'E')
 	{
-		if (map.map[y][x] == '0' || map.map[y][x] == 'P')
+		if (map.map[y][x] == '0' || map.map[y][x] == 'P'
+													|| map.map[y][x] == 'E')
 			map.map[y][x] = 'X';
 		if (map.map[y][x] == 'C' && (x != item.pos.x || y != item.pos.y))
 			map.map[y][x] = 'Y';
@@ -28,8 +30,6 @@ int	ft_check_items_reachable(t_map map, int x, int y, t_items item)
 			ft_check_items_reachable(map, x, y - 1, item) ||
 			ft_check_items_reachable(map, x, y + 1, item))
 			return (1);
-		if (map.map[y][x] == 'Z')
-			map.map[y][x] = 'P';
 		if (map.map[y][x] == 'X')
 			map.map[y][x] = '0';
 		if (map.map[y][x] == 'Y')
