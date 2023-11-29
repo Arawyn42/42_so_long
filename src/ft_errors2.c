@@ -6,14 +6,14 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 18:31:58 by drenassi          #+#    #+#             */
-/*   Updated: 2023/11/28 17:51:54 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/11/29 23:08:49 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
 /****** Counts the number of exit, start position, and items, in a map ********/
-static void	ft_map_EPC_cond(char c, int *exit, int *start, int *item)
+static void	ft_map_epc_cond(char c, int *exit, int *start, int *item)
 {
 	if (c == 'E')
 		(*exit)++;
@@ -23,9 +23,9 @@ static void	ft_map_EPC_cond(char c, int *exit, int *start, int *item)
 		(*start)++;
 }
 
-/**** Returns an error if a map dosen't contains 1 exit, 1 start position, *****/
-/*********************** and at least 1 collectible item ***********************/
-static int	ft_check_EPC(char **map)
+/**** Returns an error if a map dosen't contains 1 exit, 1 start position, ****/
+/********************** and at least 1 collectible item ***********************/
+static int	ft_check_epc(char **map)
 {
 	int	x;
 	int	y;
@@ -40,7 +40,7 @@ static int	ft_check_EPC(char **map)
 		x = 0;
 		while (map[y][x])
 		{
-			ft_map_EPC_cond(map[y][x], &check[0], &check[1], &check[2]);
+			ft_map_epc_cond(map[y][x], &check[0], &check[1], &check[2]);
 			x++;
 		}
 		y++;
@@ -54,7 +54,7 @@ static int	ft_check_EPC(char **map)
 	return (1);
 }
 
-/********************** Checks that there is no map error **********************/
+/********************* Checks that there is no map error **********************/
 int	ft_check_map(char *file)
 {
 	char	**map;
@@ -66,7 +66,7 @@ int	ft_check_map(char *file)
 		return (ft_free_array(map), 0);
 	if (!ft_check_walls(map))
 		return (ft_free_array(map), 0);
-	if (!ft_check_EPC(map))
+	if (!ft_check_epc(map))
 		return (ft_free_array(map), 0);
 	ft_free_array(map);
 	return (1);
@@ -110,10 +110,10 @@ int	ft_check_exit_reachable(t_map map, int x, int y)
 			map.map[y][x] = 'X';
 		if (map.map[y][x] == 'C')
 			map.map[y][x] = 'Y';
-		if (ft_check_exit_reachable(map, x - 1, y) ||
-			ft_check_exit_reachable(map, x + 1, y) ||
-			ft_check_exit_reachable(map, x, y - 1) ||
-			ft_check_exit_reachable(map, x, y + 1))
+		if (ft_check_exit_reachable(map, x - 1, y)
+			|| ft_check_exit_reachable(map, x + 1, y)
+			|| ft_check_exit_reachable(map, x, y - 1)
+			|| ft_check_exit_reachable(map, x, y + 1))
 			return (1);
 		if (map.map[y][x] == 'X')
 			map.map[y][x] = '0';

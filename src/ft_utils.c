@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 19:46:16 by drenassi          #+#    #+#             */
-/*   Updated: 2023/11/21 17:52:40 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/11/29 23:02:05 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	ft_print_error(const char *str)
 		write(STDERR_FILENO, &str[i++], 1);
 }
 
-/********************** Frees a double array of characters *********************/
+/********************* Frees a double array of characters *********************/
 void	ft_free_array(char **array)
 {
 	int	i;

@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 20:21:30 by drenassi          #+#    #+#             */
-/*   Updated: 2023/11/28 23:40:10 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/11/29 23:10:18 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 /******** Gets the start position on the map and set it in map struct *********/
 void	ft_get_exit(t_map *map)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	y = 0;
 	while (map->map[y])
@@ -28,7 +28,7 @@ void	ft_get_exit(t_map *map)
 			{
 				map->exit.x = x;
 				map->exit.y = y;
-				break;
+				break ;
 			}
 			x++;
 		}
@@ -57,10 +57,12 @@ void	ft_free_map(t_map *map)
 }
 
 /************************ Prints the map in characters ************************/
-void	ft_print_map(t_map map)
+void	ft_print_map(t_data data)
 {
-	int	i;
+	int		i;
+	t_map	map;
 
+	map = data.map;
 	ft_printf("\t ___________________________ \n");
 	ft_printf("\t|                           |\n");
 	ft_printf("\t|            MAP            |\n");
@@ -69,10 +71,13 @@ void	ft_print_map(t_map map)
 	while ((map.map)[i])
 		ft_printf("\t%s\n", map.map[i++]);
 	ft_printf("\n\tStart position: [%d, %d]\n", map.start.x, map.start.y);
+	ft_printf("\n\tPlayer position: [%d, %d]\n", data.pos.x, data.pos.y);
 	ft_printf("\tExit position: [%d, %d]\n", map.exit.x, map.exit.y);
 	ft_printf("\tNumber of collectibles : %d\n", map.items_count);
 	ft_printf("\tItems positions :\n");
 	i = -1;
 	while (++i < map.items_count)
 		ft_printf("\t[%d, %d]\n", map.items[i].pos.x, map.items[i].pos.y);
+	ft_printf("\tRIGHT: %d, LEFT: %d, UP: %d, DOWN: %d\n", data.inp.right,
+		data.inp.left, data.inp.up, data.inp.down);
 }

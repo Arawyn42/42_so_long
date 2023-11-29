@@ -6,7 +6,7 @@
 #    By: drenassi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 18:01:57 by drenassi          #+#    #+#              #
-#    Updated: 2023/11/28 23:20:51 by drenassi         ###   ########.fr        #
+#    Updated: 2023/11/30 00:15:44 by drenassi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,10 +35,13 @@ MLX_PATH		= ./mlx
 
 INCLUDE_PATH	= ./includes
 
-SRCS			= ft_errors.c ft_errors2.c ft_errors3.c ft_utils.c \
+SRCS			= ft_errors.c ft_errors2.c ft_errors3.c \
+				  ft_utils.c ft_utils2.c \
 				  get_next_line.c get_next_line_utils.c \
 				  ft_printf.c ft_printf2.c \
-				  ft_map.c ft_map2.c 
+				  ft_map.c ft_map2.c \
+				  ft_draw_init.c ft_draw_player.c \
+				  ft_right_left.c ft_up_down.c
 
 MLX				= minilibx.a
 

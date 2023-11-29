@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 14:52:48 by drenassi          #+#    #+#             */
-/*   Updated: 2023/11/22 14:54:46 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/11/29 23:00:05 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_args_error(int ac)
 	return (1);
 }
 
-/********************** Checks if the map is rectangular ***********************/
+/********************** Checks if the map is rectangular **********************/
 int	ft_check_rect(char **map)
 {
 	int		i;
@@ -73,7 +73,7 @@ int	ft_check_forbidden_char(char **map)
 	return (1);
 }
 
-/****************** Checks there are walls all around the map ******************/
+/***************** Checks there are walls all around the map ******************/
 static int	ft_check_walls2(char **map, int x, int y)
 {
 	while (x >= 0)
@@ -94,7 +94,7 @@ surrounded by walls.\n"), 0);
 	return (1);
 }
 
-/****************** Checks there are walls all around the map ******************/
+/***************** Checks there are walls all around the map ******************/
 int	ft_check_walls(char **map)
 {
 	int	x;

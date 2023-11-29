@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:31:52 by drenassi          #+#    #+#             */
-/*   Updated: 2023/11/28 17:42:43 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/11/29 23:09:35 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,6 @@ char	**ft_get_map(char *file)
 	fd = open(file, O_RDONLY, 0666);
 	height = ft_get_map_height(file);
 	map = ft_calloc(height + 1, sizeof(char *));
-	
 	i = 0;
 	while (i < height)
 	{
@@ -116,8 +115,8 @@ char	**ft_get_map(char *file)
 /******** Gets the start position on the map and set it in map struct *********/
 void	ft_get_start(t_map *map)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	y = 0;
 	while (map->map[y])
@@ -129,7 +128,7 @@ void	ft_get_start(t_map *map)
 			{
 				map->start.x = x;
 				map->start.y = y;
-				break;
+				break ;
 			}
 			x++;
 		}

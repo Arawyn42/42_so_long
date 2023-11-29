@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 14:51:25 by drenassi          #+#    #+#             */
-/*   Updated: 2023/11/28 22:57:33 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/11/30 00:32:31 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,25 @@
 # include <fcntl.h>
 # include <X11/keysym.h>
 # include <X11/X.h>
+# include "../mlx/mlx.h"
+# include "ft_utils.h"
+# include "ft_printf.h"
 
-typedef struct	s_pos
+/********************************** POSITION **********************************/
+typedef struct s_pos
 {
 	int		x;
 	int		y;
 }				t_pos;
 
+/*********************************** ITEMS ************************************/
 typedef struct s_items
 {
 	t_pos			pos;
 }				t_items;
 
-typedef struct	s_map
+/************************************ MAP *************************************/
+typedef struct s_map
 {
 	char		**map;
 	t_pos		start;
@@ -44,7 +50,8 @@ typedef struct	s_map
 	int			height;
 }				t_map;
 
-typedef struct	s_img
+/*********************************** IMAGE ************************************/
+typedef struct s_img
 {
 	void		*img;
 	char		*addr;
@@ -56,10 +63,23 @@ typedef struct	s_img
 	int			height;
 }				t_img;
 
-typedef struct	s_data
+/*********************************** INPUTS ***********************************/
+typedef struct s_inp
+{
+	int			anim;
+	int			right;
+	int			left;
+	int			up;
+	int			down;
+}				t_inp;
+
+/********************************** ALL DATAS *********************************/
+typedef struct s_data
 {
 	void		*mlx;
 	void		*window;
+	int			clock;
+	t_inp		inp;
 	t_map		map;
 	t_pos		pos;
 	t_img		player;
@@ -69,9 +89,18 @@ typedef struct	s_data
 	t_img		exit;
 }				t_data;
 
+/********************************* DRAW INIT **********************************/
+void	ft_print_img(t_data *data, t_img *img, int x, int y);
+void	ft_init_img(t_data *data, t_img *img, char *path);
+void	ft_init_imgs(t_data *data);
+void	ft_init_inputs(t_data *data);
+void	ft_draw_map(t_data *data);
 
-# include "../mlx/mlx.h"
-# include "ft_utils.h"
-# include "ft_printf.h"
+/******************************** DRAW PLAYER *********************************/
+void	ft_draw_above(t_data *data, t_img img, int x, int y);
+void	ft_right(t_data *data);
+void	ft_left(t_data *data);
+void	ft_up(t_data *data);
+void	ft_down(t_data *data);
 
 #endif

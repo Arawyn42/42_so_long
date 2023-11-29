@@ -6,24 +6,21 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 19:46:56 by drenassi          #+#    #+#             */
-/*   Updated: 2023/11/28 17:41:59 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/11/30 00:31:01 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_UTILS_C
-# define FT_UTILS_C
-
+#ifndef FT_UTILS_H
+# define FT_UTILS_H
 
 /*********************************** UTILS ************************************/
 size_t	ft_strlen(const char *s);
 void	*ft_calloc(size_t n, size_t size);
 void	ft_print_error(const char *str);
-void	ft_free_array(char **array);
 
 /******************************* GET NEXT LINE ********************************/
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
-
 # endif
 
 char	*gnl_strchr(char const *s, int c);
@@ -53,9 +50,13 @@ char	**ft_get_map(char *file);
 void	ft_init_map(t_map *map, char *file);
 void	ft_get_start(t_map *map);
 void	ft_get_exit(t_map *map);
+
+/************************************ FREE ************************************/
+void	ft_free_array(char **array);
 void	ft_free_map(t_map *map);
+void	ft_free_mlx(t_data *data);
 
 /*********************************** DEBUG ************************************/
-void	ft_print_map(t_map map);
+void	ft_print_map(t_data data);
 
 #endif

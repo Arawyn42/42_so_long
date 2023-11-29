@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 18:00:48 by drenassi          #+#    #+#             */
-/*   Updated: 2023/11/28 23:11:52 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/11/29 23:04:49 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ int	ft_check_items_reachable(t_map map, int x, int y, t_items item)
 			map.map[y][x] = 'X';
 		if (map.map[y][x] == 'C' && (x != item.pos.x || y != item.pos.y))
 			map.map[y][x] = 'Y';
-		if (ft_check_items_reachable(map, x - 1, y, item) ||
-			ft_check_items_reachable(map, x + 1, y, item) ||
-			ft_check_items_reachable(map, x, y - 1, item) ||
-			ft_check_items_reachable(map, x, y + 1, item))
+		if (ft_check_items_reachable(map, x - 1, y, item)
+			|| ft_check_items_reachable(map, x + 1, y, item)
+			|| ft_check_items_reachable(map, x, y - 1, item)
+			|| ft_check_items_reachable(map, x, y + 1, item))
 			return (1);
 		if (map.map[y][x] == 'X')
 			map.map[y][x] = '0';
@@ -73,6 +73,9 @@ int	ft_check_all_errors(int ac, char **av, t_data *data)
 	ft_init_map(&data->map, av[1]);
 	data->pos = data->map.start;
 	if (!ft_check_completable(data->map, data->map.start.x, data->map.start.y))
-		return (ft_print_map(data->map), ft_free_map(&data->map), exit(EXIT_FAILURE), 0);
-	return (ft_print_map(data->map), 1);
+	{
+		ft_free_map(&data->map);
+		return (exit(EXIT_FAILURE), 0);
+	}
+	return (ft_print_map(*data), 1);
 }
