@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:31:52 by drenassi          #+#    #+#             */
-/*   Updated: 2023/11/29 23:09:35 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/11/30 18:35:20 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,7 @@ void	ft_get_start(t_map *map)
 			{
 				map->start.x = x;
 				map->start.y = y;
+				map->start.c = '0';
 				break ;
 			}
 			x++;

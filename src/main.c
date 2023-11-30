@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 14:52:07 by drenassi          #+#    #+#             */
-/*   Updated: 2023/11/30 00:28:05 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/11/30 19:37:59 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,14 @@ int	ft_key_pressed(int key, t_data *data)
 	{
 		data->clock = 0;
 		data->inp.right = 1;
+		data->inp.anim = 1;
 	}
 	else if ((key == XK_Left || key == XK_a) && !data->inp.right
 		&& !data->inp.left && !data->inp.up && !data->inp.down)
 	{
 		data->clock = 0;
 		data->inp.left = 1;
+		data-
 	}
 	else
 		ft_key_pressed2(key, data);

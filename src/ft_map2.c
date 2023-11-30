@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 20:21:30 by drenassi          #+#    #+#             */
-/*   Updated: 2023/11/29 23:10:18 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/11/30 17:22:11 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ void	ft_print_map(t_data data)
 	ft_printf("\n\tStart position: [%d, %d]\n", map.start.x, map.start.y);
 	ft_printf("\n\tPlayer position: [%d, %d]\n", data.pos.x, data.pos.y);
 	ft_printf("\tExit position: [%d, %d]\n", map.exit.x, map.exit.y);
-	ft_printf("\tNumber of collectibles : %d\n", map.items_count);
-	ft_printf("\tItems positions :\n");
+	ft_printf("\tNumber of items to collect: %d\n", map.items_count);
+	ft_printf("\tItems positions:\n");
 	i = -1;
 	while (++i < map.items_count)
 		ft_printf("\t[%d, %d]\n", map.items[i].pos.x, map.items[i].pos.y);
