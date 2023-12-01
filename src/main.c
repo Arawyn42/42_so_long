@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: arawyn <arawyn@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 14:52:07 by drenassi          #+#    #+#             */
-/*   Updated: 2023/11/30 19:37:59 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/12/01 18:01:05 by arawyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,18 +56,17 @@ int	ft_key_pressed(int key, t_data *data)
 	{
 		data->clock = 0;
 		data->inp.right = 1;
-		data->inp.anim = 1;
 	}
 	else if ((key == XK_Left || key == XK_a) && !data->inp.right
 		&& !data->inp.left && !data->inp.up && !data->inp.down)
 	{
 		data->clock = 0;
 		data->inp.left = 1;
-		data-
 	}
 	else
 		ft_key_pressed2(key, data);
-	ft_print_map(*data); // DEBUG
+	if (key == XK_space)
+		ft_print_infos(*data);
 	return (0);
 }
 
@@ -81,7 +80,7 @@ static void	ft_create_window(t_data *data, int w, int h)
 	ft_init_inputs(data);
 	ft_draw_map(data);
 	mlx_loop_hook(data->mlx, &ft_refresh, data);
-	mlx_hook(data->window, KeyRelease, KeyReleaseMask, &ft_key_pressed, data);
+	mlx_hook(data->window, KeyPress, KeyPressMask, &ft_key_pressed, data);
 	mlx_loop(data->mlx);
 }
 

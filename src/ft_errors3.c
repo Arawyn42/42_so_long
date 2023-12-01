@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_errors3.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: arawyn <arawyn@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 18:00:48 by drenassi          #+#    #+#             */
-/*   Updated: 2023/11/30 18:34:27 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/12/01 16:01:20 by arawyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,12 @@ int	ft_check_all_errors(int ac, char **av, t_data *data)
 		return (exit(EXIT_FAILURE), 0);
 	if (!ft_check_map(av[1]))
 		return (exit(EXIT_FAILURE), 0);
-	ft_init_map(&data->map, av[1]);
-	data->pos = data->map.start;
+	ft_init_map(data, av[1]);
 	if (!ft_check_completable(data->map, data->map.start.x, data->map.start.y))
 	{
 		ft_free_map(&data->map);
 		return (exit(EXIT_FAILURE), 0);
 	}
-	return (ft_print_map(*data), 1);
+	data->map.map[data->map.start.y][data->map.start.x] = '0';
+	return (ft_print_infos(*data), 1);
 }

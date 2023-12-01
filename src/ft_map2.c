@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: arawyn <arawyn@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 20:21:30 by drenassi          #+#    #+#             */
-/*   Updated: 2023/11/30 17:22:11 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/12/01 18:12:30 by arawyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,18 @@ void	ft_get_exit(t_map *map)
 }
 
 /************* Initializes a map with start values and item count *************/
-void	ft_init_map(t_map *map, char *file)
+void	ft_init_map(t_data *data, char *file)
 {
-	map->map = ft_get_map(file);
-	map->start.x = -1;
-	map->start.y = -1;
-	ft_get_start(map);
-	ft_get_exit(map);
-	ft_get_items_pos(map);
-	map->width = ft_strlen(map->map[0]);
-	map->height = ft_get_map_height(file);
+	data->map.map = ft_get_map(file);
+	data->map.start.x = -1;
+	data->map.start.y = -1;
+	ft_get_start(&data->map);
+	ft_get_exit(&data->map);
+	ft_get_items_pos(&data->map);
+	data->map.width = ft_strlen(data->map.map[0]);
+	data->map.height = ft_get_map_height(file);
+	data->pos = data->map.start;
+	data->inp.anim = 0;
 }
 
 /**************** Free the map and the collectible items array ****************/
@@ -56,8 +58,31 @@ void	ft_free_map(t_map *map)
 	free(map->items);
 }
 
+static void	ft_print_map(t_data data, int display_p)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while ((data.map.map)[y])
+	{
+		x = 0;
+		write(1, "\t", 1);
+		while (data.map.map[y][x])
+		{
+			if (x == data.pos.x && y == data.pos.y && display_p)
+				write(1, "P", 1);
+			else
+				write(1, &data.map.map[y][x], 1);
+			x++;
+		}
+		write(1, "\n", 1);
+		y++;
+	}
+}
+
 /************************ Prints the map in characters ************************/
-void	ft_print_map(t_data data)
+void	ft_print_infos(t_data data)
 {
 	int		i;
 	t_map	map;
@@ -67,9 +92,7 @@ void	ft_print_map(t_data data)
 	ft_printf("\t|                           |\n");
 	ft_printf("\t|            MAP            |\n");
 	ft_printf("\t|___________________________|\n\n");
-	i = 0;
-	while ((map.map)[i])
-		ft_printf("\t%s\n", map.map[i++]);
+	ft_print_map(data, 1);
 	ft_printf("\n\tStart position: [%d, %d]\n", map.start.x, map.start.y);
 	ft_printf("\n\tPlayer position: [%d, %d]\n", data.pos.x, data.pos.y);
 	ft_printf("\tExit position: [%d, %d]\n", map.exit.x, map.exit.y);
@@ -78,6 +101,7 @@ void	ft_print_map(t_data data)
 	i = -1;
 	while (++i < map.items_count)
 		ft_printf("\t[%d, %d]\n", map.items[i].pos.x, map.items[i].pos.y);
-	ft_printf("\tRIGHT: %d, LEFT: %d, UP: %d, DOWN: %d\n", data.inp.right,
-		data.inp.left, data.inp.up, data.inp.down);
+	ft_printf("\tRIGHT: %d, LEFT: %d, UP: %d, DOWN: %d, ANIM: %d\n\n",
+		data.inp.right,	data.inp.left, data.inp.up, data.inp.down,
+		data.inp.anim);
 }

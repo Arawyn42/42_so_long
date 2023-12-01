@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: drenassi <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: arawyn <arawyn@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 18:01:57 by drenassi          #+#    #+#              #
-#    Updated: 2023/11/30 17:16:00 by drenassi         ###   ########.fr        #
+#    Updated: 2023/12/01 16:51:34 by arawyn           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@
 NAME	= so_long
 CC 		= cc
 CFLAGS	= -Wall -Werror -Wextra -g3
-MLXFLAGS= -lX11 -lXext
+MLXFLAGS= -Imlx -lX11 -lXext
 AUTHOR	= drenassi
 DATE	= 09/11/2023
 NOVISU 	= 0 # 1 = no progress bar usefull when tty is not available
@@ -258,7 +258,7 @@ setup:
 ################################## NAME'S RULE #################################
 $(NAME):	${OBJS} ${OBJ_MAIN} ${MLX}
 			@$(call display_progress_bar)
-			@$(call run_and_test,$(CC) $(CFLAGS) $(MLXFLAGS) -I$(INCLUDE_PATH) -o $@ ${OBJS} ${OBJ_MAIN} ${MLX})
+			@$(call run_and_test,$(CC) $(CFLAGS) -I$(INCLUDE_PATH) -o $@ ${OBJS} ${OBJ_MAIN} ${MLX} $(MLXFLAGS))
 
 ################################# OBJECTS' RULE ################################
 $(OBJS_PATH)/%.o: 	$(SRCS_PATH)/%$(FILE_EXTENSION)

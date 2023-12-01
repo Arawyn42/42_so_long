@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: arawyn <arawyn@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:31:52 by drenassi          #+#    #+#             */
-/*   Updated: 2023/11/30 18:35:20 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/12/01 16:01:44 by arawyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,6 @@ void	ft_get_start(t_map *map)
 			{
 				map->start.x = x;
 				map->start.y = y;
-				map->start.c = '0';
 				break ;
 			}
 			x++;

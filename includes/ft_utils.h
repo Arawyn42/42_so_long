@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 19:46:56 by drenassi          #+#    #+#             */
-/*   Updated: 2023/11/30 00:31:01 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/12/01 13:16:18 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		ft_get_map_height(char *file);
 int		ft_get_items_count(t_map *map);
 void	ft_get_items_pos(t_map *map);
 char	**ft_get_map(char *file);
-void	ft_init_map(t_map *map, char *file);
+void	ft_init_map(t_data *data, char *file);
 void	ft_get_start(t_map *map);
 void	ft_get_exit(t_map *map);
 
@@ -57,6 +57,6 @@ void	ft_free_map(t_map *map);
 void	ft_free_mlx(t_data *data);
 
 /*********************************** DEBUG ************************************/
-void	ft_print_map(t_data data);
+void	ft_print_infos(t_data data);
 
 #endif
