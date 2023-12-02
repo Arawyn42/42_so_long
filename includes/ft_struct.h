@@ -6,7 +6,7 @@
 /*   By: arawyn <arawyn@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 00:37:06 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/02 04:30:27 by arawyn           ###   ########.fr       */
+/*   Updated: 2023/12/02 11:47:18 by arawyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct s_img
 typedef struct s_inp
 {
 	int			anim;
+	int			win;
 	int			right;
 	int			left;
 	int			up;

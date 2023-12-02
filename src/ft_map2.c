@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arawyn <arawyn@student.42.fr>              +#+  +:+       +#+        */
+/*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 20:21:30 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/02 04:33:52 by arawyn           ###   ########.fr       */
+/*   Updated: 2023/12/02 13:27:35 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,4 @@ void	ft_print_infos(t_data data)
 	i = -1;
 	while (++i < map.items_count)
 		ft_printf("\t[%d, %d]\n", map.items[i].pos.x, map.items[i].pos.y);
-	ft_printf("\tMOVES: %d\n", data.moves);
 }

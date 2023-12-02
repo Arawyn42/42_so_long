@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_down.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arawyn <arawyn@student.42.fr>              +#+  +:+       +#+        */
+/*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 00:13:34 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/02 04:32:21 by arawyn           ###   ########.fr       */
+/*   Updated: 2023/12/02 12:45:11 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,10 @@ static void	ft_down2(t_data *data)
 	{
 		data->inp.anim = 0;
 		data->inp.down = 0;
-		ft_win_game(data);
+		ft_draw_score(data);
+		if (data->map.map[data->pos.y][data->pos.x] == 'E'
+			&& data->map.items_count == 0)
+			data->inp.win = 1;
 	}
 }
 

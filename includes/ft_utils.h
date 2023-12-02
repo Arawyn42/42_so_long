@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arawyn <arawyn@student.42.fr>              +#+  +:+       +#+        */
+/*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 19:46:56 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/02 03:56:17 by arawyn           ###   ########.fr       */
+/*   Updated: 2023/12/02 13:00:59 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 /*********************************** UTILS ************************************/
 size_t	ft_strlen(const char *s);
 void	*ft_calloc(size_t n, size_t size);
+char	*ft_itoa(int n);
 void	ft_print_error(const char *str);
 
 /******************************* GET NEXT LINE ********************************/
