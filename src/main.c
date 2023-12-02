@@ -6,7 +6,7 @@
 /*   By: arawyn <arawyn@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 14:52:07 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/01 18:01:05 by arawyn           ###   ########.fr       */
+/*   Updated: 2023/12/02 03:38:57 by arawyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,7 @@ static void	ft_key_pressed2(int key, t_data *data)
 int	ft_key_pressed(int key, t_data *data)
 {
 	if (key == XK_Escape)
-	{
-		ft_free_mlx(data);
-		exit(EXIT_SUCCESS);
-	}
+		ft_close(data);
 	else if ((key == XK_Right || key == XK_d) && !data->inp.right
 		&& !data->inp.left && !data->inp.up && !data->inp.down)
 	{
@@ -81,6 +78,7 @@ static void	ft_create_window(t_data *data, int w, int h)
 	ft_draw_map(data);
 	mlx_loop_hook(data->mlx, &ft_refresh, data);
 	mlx_hook(data->window, KeyPress, KeyPressMask, &ft_key_pressed, data);
+	mlx_hook(data->window, 17, 0, &ft_close, data);
 	mlx_loop(data->mlx);
 }
 

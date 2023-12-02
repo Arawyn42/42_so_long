@@ -6,7 +6,7 @@
 /*   By: arawyn <arawyn@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 00:13:30 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/01 18:09:59 by arawyn           ###   ########.fr       */
+/*   Updated: 2023/12/02 04:32:34 by arawyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ static void	ft_right_anim2(t_data *data, t_img start_img, t_img end_img)
 	if (data->clock == 8000)
 	{
 		data->pos.x += 1;
+		data->moves += 1;
 		ft_init_img(data, &(data->player), "./sprites/player_right1.xpm");
 		ft_draw_above(data, end_img, data->pos.x, data->pos.y);
 	}
@@ -68,15 +69,37 @@ static void	ft_right_anim(t_data *data)
 	start_img = data->ground;
 	if (data->map.map[data->pos.y][data->pos.x] == 'D')
 		start_img = data->item;
+	if (data->map.map[data->pos.y][data->pos.x] == 'E')
+		start_img = data->exit;
 	end_img = data->ground;
 	if (data->map.map[data->pos.y][data->pos.x + 1] == 'D')
 		end_img = data->item;
+	if (data->map.map[data->pos.y][data->pos.x + 1] == 'E')
+		end_img = data->exit;
 	if (data->clock == 2000)
 	{
 		ft_init_img(data, &(data->player), "./sprites/player_right2.xpm");
 		ft_draw_above(data, start_img, data->pos.x, data->pos.y);
 	}
 	ft_right_anim2(data, start_img, end_img);
+}
+
+static void	ft_right2(t_data *data)
+{
+	if (((data->map.map[data->pos.y][data->pos.x + 1] == '0'
+		|| data->map.map[data->pos.y][data->pos.x + 1] == 'D'
+		|| data->map.map[data->pos.y][data->pos.x + 1] == 'E')
+		&& data->inp.right && !data->inp.anim) || data->inp.anim == 1)
+		ft_right_anim(data);
+	if ((data->map.map[data->pos.y][data->pos.x + 1] == 'C'
+		&& data->inp.right && !data->inp.anim) || data->inp.anim == 2)
+		ft_right_item_anim(data);
+	if (data->clock == 8050)
+	{
+		data->inp.anim = 0;
+		data->inp.right = 0;
+		ft_win_game(data);
+	}
 }
 
 void	ft_right(t_data *data)
@@ -87,21 +110,12 @@ void	ft_right(t_data *data)
 		img = data->ground;
 	else if (data->map.map[data->pos.y][data->pos.x] == 'D')
 		img = data->item;
+	else if (data->map.map[data->pos.y][data->pos.x] == 'E')
+		img = data->exit;
 	if (data->clock == 10 && data->inp.right)
 	{
 		ft_init_img(data, &(data->player), "./sprites/player_right1.xpm");
 		ft_draw_above(data, img, data->pos.x, data->pos.y);
 	}
-	if (((data->map.map[data->pos.y][data->pos.x + 1] == '0'
-		|| data->map.map[data->pos.y][data->pos.x + 1] == 'D')
-		&& data->inp.right && !data->inp.anim) || data->inp.anim == 1)
-		ft_right_anim(data);
-	if ((data->map.map[data->pos.y][data->pos.x + 1] == 'C'
-		&& data->inp.right && !data->inp.anim) || data->inp.anim == 2)
-		ft_right_item_anim(data);
-	if (data->clock == 8050)
-	{
-		data->inp.anim = 0;
-		data->inp.right = 0;
-	}
+	ft_right2(data);
 }

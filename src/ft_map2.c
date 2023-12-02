@@ -6,7 +6,7 @@
 /*   By: arawyn <arawyn@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 20:21:30 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/01 18:12:30 by arawyn           ###   ########.fr       */
+/*   Updated: 2023/12/02 04:33:52 by arawyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,5 @@ void	ft_print_infos(t_data data)
 	i = -1;
 	while (++i < map.items_count)
 		ft_printf("\t[%d, %d]\n", map.items[i].pos.x, map.items[i].pos.y);
-	ft_printf("\tRIGHT: %d, LEFT: %d, UP: %d, DOWN: %d, ANIM: %d\n\n",
-		data.inp.right,	data.inp.left, data.inp.up, data.inp.down,
-		data.inp.anim);
+	ft_printf("\tMOVES: %d\n", data.moves);
 }

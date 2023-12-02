@@ -6,7 +6,7 @@
 /*   By: arawyn <arawyn@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 00:37:06 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/01 14:04:05 by arawyn           ###   ########.fr       */
+/*   Updated: 2023/12/02 04:30:27 by arawyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ typedef struct s_data
 	void		*mlx;
 	void		*window;
 	int			clock;
+	int			moves;
 	t_inp		inp;
 	t_map		map;
 	t_pos		pos;
@@ -75,6 +76,7 @@ typedef struct s_data
 	t_img		wall;
 	t_img		item;
 	t_img		exit;
+	t_img		win;
 }				t_data;
 
 #endif

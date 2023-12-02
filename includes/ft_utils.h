@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: arawyn <arawyn@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 19:46:56 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/01 13:16:18 by marvin           ###   ########.fr       */
+/*   Updated: 2023/12/02 03:56:17 by arawyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ void	ft_get_exit(t_map *map);
 /************************************ FREE ************************************/
 void	ft_free_array(char **array);
 void	ft_free_map(t_map *map);
-void	ft_free_mlx(t_data *data);
 
 /*********************************** DEBUG ************************************/
 void	ft_print_infos(t_data data);

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_draw_player.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: arawyn <arawyn@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 22:48:52 by drenassi          #+#    #+#             */
-/*   Updated: 2023/11/29 23:07:04 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/12/02 04:13:33 by arawyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-static t_img	ft_img_cpy(t_data *data, t_img img)
+t_img	ft_img_cpy(t_data *data, t_img img)
 {
 	t_img	cpy;
 

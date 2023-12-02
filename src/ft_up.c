@@ -6,7 +6,7 @@
 /*   By: arawyn <arawyn@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:14:06 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/01 18:10:01 by arawyn           ###   ########.fr       */
+/*   Updated: 2023/12/02 04:32:28 by arawyn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ static void	ft_up_anim2(t_data *data, t_img start_img, t_img end_img)
 	if (data->clock == 8000)
 	{
 		data->pos.y -= 1;
+		data->moves += 1;
 		ft_init_img(data, &(data->player), "./sprites/player_up1.xpm");
 		ft_draw_above(data, end_img, data->pos.x, data->pos.y);
 	}
@@ -68,15 +69,37 @@ static void	ft_up_anim(t_data *data)
 	start_img = data->ground;
 	if (data->map.map[data->pos.y][data->pos.x] == 'D')
 		start_img = data->item;
+	if (data->map.map[data->pos.y][data->pos.x] == 'E')
+		start_img = data->exit;
 	end_img = data->ground;
 	if (data->map.map[data->pos.y - 1][data->pos.x] == 'D')
 		end_img = data->item;
+	if (data->map.map[data->pos.y - 1][data->pos.x] == 'E')
+		end_img = data->exit;
 	if (data->clock == 2000)
 	{
 		ft_init_img(data, &(data->player), "./sprites/player_up2.xpm");
 		ft_draw_above(data, start_img, data->pos.x, data->pos.y);
 	}
 	ft_up_anim2(data, start_img, end_img);
+}
+
+static void	ft_up2(t_data *data)
+{
+	if (((data->map.map[data->pos.y - 1][data->pos.x] == '0'
+		|| data->map.map[data->pos.y - 1][data->pos.x] == 'D'
+		|| data->map.map[data->pos.y - 1][data->pos.x] == 'E')
+		&& data->inp.up && !data->inp.anim) || data->inp.anim == 1)
+		ft_up_anim(data);
+	if ((data->map.map[data->pos.y - 1][data->pos.x] == 'C'
+			&& data->inp.up && !data->inp.anim) || data->inp.anim == 2)
+		ft_up_item_anim(data);
+	if (data->clock == 8050)
+	{
+		data->inp.anim = 0;
+		data->inp.up = 0;
+		ft_win_game(data);
+	}	
 }
 
 void	ft_up(t_data *data)
@@ -87,21 +110,12 @@ void	ft_up(t_data *data)
 		img = data->ground;
 	else if (data->map.map[data->pos.y][data->pos.x] == 'D')
 		img = data->item;
+	else if (data->map.map[data->pos.y][data->pos.x] == 'E')
+		img = data->exit;
 	if (data->clock == 10 && data->inp.up)
 	{
 		ft_init_img(data, &(data->player), "./sprites/player_up1.xpm");
 		ft_draw_above(data, img, data->pos.x, data->pos.y);
 	}
-	if (((data->map.map[data->pos.y - 1][data->pos.x] == '0'
-		|| data->map.map[data->pos.y - 1][data->pos.x] == 'D')
-		&& data->inp.up && !data->inp.anim) || data->inp.anim == 1)
-		ft_up_anim(data);
-	if ((data->map.map[data->pos.y - 1][data->pos.x] == 'C'
-			&& data->inp.up && !data->inp.anim) || data->inp.anim == 2)
-		ft_up_item_anim(data);
-	if (data->clock == 8050)
-	{
-		data->inp.anim = 0;
-		data->inp.up = 0;
-	}
+	ft_up2(data);
 }
