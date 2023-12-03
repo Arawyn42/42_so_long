@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_struct.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arawyn <arawyn@student.42.fr>              +#+  +:+       +#+        */
+/*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 00:37:06 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/02 11:47:18 by arawyn           ###   ########.fr       */
+/*   Updated: 2023/12/03 18:11:49 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ typedef struct s_data
 	t_img		wall;
 	t_img		item;
 	t_img		exit;
+	t_img		score;
 	t_img		win;
 }				t_data;
 

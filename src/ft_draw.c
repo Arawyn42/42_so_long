@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 11:50:43 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/02 12:17:24 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/12/03 17:32:54 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,14 +72,20 @@ int	ft_key_pressed(int key, t_data *data)
 void	ft_create_window(t_data *data, int w, int h)
 {
 	data->mlx = mlx_init();
-	data->window = mlx_new_window(data->mlx, w, h, "The best game ever");
-	if (!data->window)
-		return (free(data->mlx));
-	ft_init_imgs(data);
-	ft_init_inputs(data);
-	ft_draw_map(data);
-	mlx_loop_hook(data->mlx, &ft_refresh, data);
-	mlx_hook(data->window, KeyPress, KeyPressMask, &ft_key_pressed, data);
-	mlx_hook(data->window, 17, 0, &ft_close, data);
-	mlx_loop(data->mlx);
+	if (data->mlx)
+	{
+		data->window = mlx_new_window(data->mlx, w, h, "The best game ever");
+		if (!data->window)
+			return (free(data->mlx));
+		ft_init_imgs(data);
+		ft_init_inputs(data);
+		ft_draw_map(data);
+		mlx_loop_hook(data->mlx, &ft_refresh, data);
+		mlx_hook(data->window, KeyPress, KeyPressMask, &ft_key_pressed, data);
+		mlx_hook(data->window, DestroyNotify, NoEventMask, &ft_close, data);
+		mlx_hook(data->window, ResizeRequest, ResizeRedirectMask, &ft_draw_map, data);
+		mlx_loop(data->mlx);
+	}
+	else
+		return (ft_print_error("Error: mlx_ptr didn't init correctly."));
 }

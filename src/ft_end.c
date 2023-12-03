@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 22:36:55 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/02 13:19:22 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/12/03 18:22:36 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	ft_close(t_data *data)
 	mlx_destroy_image(data->mlx, data->wall.img);
 	mlx_destroy_image(data->mlx, data->item.img);
 	mlx_destroy_image(data->mlx, data->exit.img);
+	mlx_destroy_image(data->mlx, data->score.img);
 	mlx_destroy_image(data->mlx, data->win.img);
 	mlx_destroy_window(data->mlx, data->window);
 	mlx_destroy_display(data->mlx);

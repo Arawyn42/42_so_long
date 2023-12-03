@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 22:48:52 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/02 13:16:50 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/12/03 18:26:04 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,28 +54,17 @@ void	ft_draw_above(t_data *data, t_img img, int x, int y)
 
 void	ft_draw_score(t_data *data)
 {
-	int		x;
-	int		y;
 	char	*score;
 
-	y = 20;
-	while (y < 50)
-	{
-		x = 10;
-		while (x < 55)
-		{
-			mlx_pixel_put(data->mlx, data->window, x, y, 0x00ffffff);
-			x++;
-		}
-		y++;
-	}
+	ft_init_img(data, &data->score, "./sprites/score_screen.xpm");
+	ft_print_img(data, &data->score, 0, 0);
 	score = ft_itoa(data->moves);
-	mlx_string_put(data->mlx, data->window, 15, 32, 0x00000000, "Moves: ");
 	if (ft_strlen(score) == 1)
-		mlx_string_put(data->mlx, data->window, 29, 46, 0x00006400, score);
+		mlx_string_put(data->mlx, data->window, 29, 43, 0x00006400, score);
 	else if (ft_strlen(score) == 2)
-		mlx_string_put(data->mlx, data->window, 25, 46, 0x00006400, score);
+		mlx_string_put(data->mlx, data->window, 25, 43, 0x00006400, score);
 	else
-		mlx_string_put(data->mlx, data->window, 20, 46, 0x00006400, score);
+		mlx_string_put(data->mlx, data->window, 20, 43, 0x00006400, score);
 	free(score);
+	ft_printf("\033[A\rScore: %d moves.\n", data->moves);
 }

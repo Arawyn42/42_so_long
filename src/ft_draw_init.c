@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 22:35:13 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/02 13:39:33 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/12/03 18:21:37 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ void	ft_init_imgs(t_data *data)
 	ft_init_img(data, &(data->exit), "./sprites/exit1.xpm");
 	data->item.img = NULL;
 	ft_init_img(data, &(data->item), "./sprites/item1.xpm");
+	data->score.img = NULL;
+	ft_init_img(data, &(data->score), "./sprites/score_screen.xpm");
 	data->win.img = NULL;
 	ft_init_img(data, &(data->win), "./sprites/win.xpm");
 	data->win.width = 256;
@@ -60,31 +62,4 @@ void	ft_init_inputs(t_data *data)
 	data->inp.up = 0;
 	data->inp.down = 0;
 	data->inp.win = 0;
-}
-
-void	ft_draw_map(t_data *data)
-{
-	int	x;
-	int	y;
-
-	y = 0;
-	while (data->map.map && data->map.map[y])
-	{
-		x = 0;
-		while (data->map.map[y][x])
-		{
-			if (data->map.map[y][x] == '0')
-				ft_print_img(data, &(data->ground), x, y);
-			else if (data->map.map[y][x] == '1')
-				ft_print_img(data, &(data->wall), x, y);
-			else if (data->map.map[y][x] == 'C')
-				ft_print_img(data, &(data->item), x, y);
-			else if (data->map.map[y][x] == 'E')
-				ft_print_img(data, &(data->exit), x, y);
-			x++;
-		}
-		y++;
-	}
-	ft_draw_above(data, data->ground, data->pos.x, data->pos.y);
-	ft_draw_score(data);
 }

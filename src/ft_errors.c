@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 14:52:48 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/02 11:50:36 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/12/03 16:55:07 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ int	ft_check_forbidden_char(char **map)
 				&& map[y][x] != 'E' && map[y][x] != 'P')
 			{
 				ft_print_error("Map error: The map must contains only");
-				ft_print_error(" one of these characters :\n0 for an ");
-				ft_print_error("empty space,\n1 for a wall,\nC for ");
-				ft_print_error("collectibles,\nE for the exit,\nP for ");
+				ft_print_error(" one of these characters:\n0 for an ");
+				ft_print_error("empty space,\n1 for a wall,\nC for a ");
+				ft_print_error("collectible item,\nE for the exit,\nP for ");
 				ft_print_error("the player's start position.\n");
 				return (0);
 			}
