@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 20:21:30 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/02 13:27:35 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/12/04 20:06:58 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	ft_init_map(t_data *data, char *file)
 	ft_get_start(&data->map);
 	ft_get_exit(&data->map);
 	ft_get_items_pos(&data->map);
+	ft_get_enemies_pos(&data->map);
 	data->map.width = ft_strlen(data->map.map[0]);
 	data->map.height = ft_get_map_height(file);
 	data->pos = data->map.start;
@@ -56,6 +57,8 @@ void	ft_free_map(t_map *map)
 {
 	ft_free_array(map->map);
 	free(map->items);
+	if (map->enemies_count)
+		free(map->enemies);
 }
 
 static void	ft_print_map(t_data data, int display_p)
@@ -101,4 +104,10 @@ void	ft_print_infos(t_data data)
 	i = -1;
 	while (++i < map.items_count)
 		ft_printf("\t[%d, %d]\n", map.items[i].pos.x, map.items[i].pos.y);
+	ft_printf("\tNumber of enemies: %d\n", map.enemies_count);
+	ft_printf("\tEnemies positions:\n");
+	i = -1;
+	while (++i < map.enemies_count)
+		ft_printf("\t[%d, %d]\n", map.enemies[i].pos.x, map.enemies[i].pos.y);
+	ft_printf("\t ___________________________ \n\n");
 }

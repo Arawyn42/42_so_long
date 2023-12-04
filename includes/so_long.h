@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 14:51:25 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/03 17:28:41 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:55:22 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,14 @@ void	ft_left(t_data *data);
 void	ft_up(t_data *data);
 void	ft_down(t_data *data);
 
+/******************************** DRAW ENEMIES ********************************/
+void	ft_enemies_anim(t_data *data);
+void	ft_left_enemy_anim(t_data *data, t_img img);
+void	ft_right_enemy_anim(t_data *data, t_img img);
+void	ft_up_enemy_anim(t_data *data, t_img img);
+void	ft_down_enemy_anim(t_data *data, t_img img);
+void	ft_enemies_end_anim(t_data *data);
+
 /************************************ DRAW ************************************/
 void	ft_draw_score(t_data *data);
 int     ft_refresh(t_data *data);
@@ -50,5 +58,6 @@ void	ft_create_window(t_data *data, int w, int h);
 /****************************** END OF THE GAME *******************************/
 int     ft_close(t_data *data);
 void	ft_win_game(t_data *data);
+void	ft_lose_game(t_data *data, t_img img);
 
 #endif

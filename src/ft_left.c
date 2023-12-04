@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:14:31 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/02 13:34:10 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:55:32 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void ft_left_item_anim(t_data *data)
 {
-	if (data->clock < 2000)
+	if (data->clock == 10)
 		data->inp.anim = 2;
 	if (data->clock == 2000)
 	{
@@ -64,7 +64,7 @@ static void	ft_left_anim(t_data *data)
 	t_img	start_img;
 	t_img	end_img;
 
-	if (data->clock < 2000)
+	if (data->clock == 10)
 		data->inp.anim = 1;
 	start_img = data->ground;
 	if (data->map.map[data->pos.y][data->pos.x] == 'D')
@@ -84,7 +84,7 @@ static void	ft_left_anim(t_data *data)
 	ft_left_anim2(data, start_img, end_img);
 }
 
-static void	ft_left2(t_data *data)
+static void	ft_left2(t_data *data, t_img img)
 {
 	if (((data->map.map[data->pos.y][data->pos.x - 1] == '0'
 		|| data->map.map[data->pos.y][data->pos.x - 1] == 'D'
@@ -94,7 +94,10 @@ static void	ft_left2(t_data *data)
 	if ((data->map.map[data->pos.y][data->pos.x - 1] == 'C'
 		&& data->inp.left && !data->inp.anim) || data->inp.anim == 2)
 		ft_left_item_anim(data);
-	if (data->clock == 8050)
+	if ((data->map.map[data->pos.y][data->pos.x - 1] == 'M'
+		&& data->inp.left && !data->inp.anim) || data->inp.anim == 3)
+		ft_left_enemy_anim(data, img);
+	if (data->clock == 8050 && data->inp.anim != 3)
 	{
 		data->inp.anim = 0;
 		data->inp.left = 0;
@@ -109,16 +112,16 @@ void	ft_left(t_data *data)
 {
 	t_img	img;
 
-	if (data->map.map[data->pos.y][data->pos.x] == '0')
-		img = data->ground;
-	else if (data->map.map[data->pos.y][data->pos.x] == 'D')
+	if (data->map.map[data->pos.y][data->pos.x] == 'D')
 		img = data->item;
 	else if (data->map.map[data->pos.y][data->pos.x] == 'E')
 		img = data->exit;
+	else
+		img = data->ground;
 	if (data->clock == 10 && data->inp.left)
 	{
 		ft_init_img(data, &(data->player), "./sprites/player_left1.xpm");
 		ft_draw_above(data, img, data->pos.x, data->pos.y);
 	}
-	ft_left2(data);
+	ft_left2(data, img);
 }

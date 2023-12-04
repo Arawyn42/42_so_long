@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 17:18:22 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/03 17:28:20 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/12/04 17:32:56 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ static void    ft_draw_map2(t_data *data, int *x, int *y)
     }
     else if (data->map.map[*y][*x] == 'E')
         ft_print_img(data, &(data->exit), *x, *y);
+    else if (data->map.map[*y][*x] == 'M')
+    {
+        ft_init_img(data, &data->enemy, "./sprites/item1.xpm");
+        ft_print_img(data, &(data->enemy), *x, *y);
+    }
 }
 
 int ft_draw_map(t_data *data)

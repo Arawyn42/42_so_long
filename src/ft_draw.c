@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 11:50:43 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/03 17:32:54 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:46:43 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@ int	ft_refresh(t_data *data)
 	data->clock++;
 	if (data->clock >= 50000)
 		data->clock = 0;
+	data->clock2++;
+	if (data->clock2 >= 50000)
+		data->clock2 = 0;
+	ft_enemies_anim(data);
 	if (data->inp.right && !data->inp.left && !data->inp.up && !data->inp.down)
 		ft_right(data);
 	if (data->inp.left && !data->inp.right && !data->inp.up && !data->inp.down)
@@ -25,8 +29,10 @@ int	ft_refresh(t_data *data)
 		ft_up(data);
 	if (data->inp.down && !data->inp.right && !data->inp.left && !data->inp.up)
 		ft_down(data);
-    if (data->inp.win == 1)
-        ft_win_game(data);
+	if (data->inp.win == 1)
+		ft_win_game(data);
+	else if (data->inp.win == 2 && data->inp.anim == 3)
+		ft_enemies_end_anim(data);
     return (1);
 }
 

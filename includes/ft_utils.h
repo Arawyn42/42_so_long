@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 19:46:56 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/02 13:00:59 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/12/04 16:57:39 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,13 @@ int		ft_check_all_errors(int ac, char **av, t_data *data);
 int		ft_get_map_height(char *file);
 int		ft_get_items_count(t_map *map);
 void	ft_get_items_pos(t_map *map);
+int		ft_get_enemies_count(t_map *map);
+void	ft_get_enemies_pos(t_map *map);
 char	**ft_get_map(char *file);
 void	ft_init_map(t_data *data, char *file);
 void	ft_get_start(t_map *map);
 void	ft_get_exit(t_map *map);
+
 
 /************************************ FREE ************************************/
 void	ft_free_array(char **array);

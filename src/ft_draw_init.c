@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 22:35:13 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/03 18:21:37 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/12/04 18:52:16 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	ft_init_img(t_data *data, t_img *img, char *path)
 void	ft_init_imgs(t_data *data)
 {
 	data->clock = 0;
+	data->clock2 = 0;
 	data->moves = 0;
 	data->ground.img = NULL;
 	ft_init_img(data, &(data->ground), "./sprites/ground.xpm");
@@ -46,12 +47,14 @@ void	ft_init_imgs(t_data *data)
 	ft_init_img(data, &(data->exit), "./sprites/exit1.xpm");
 	data->item.img = NULL;
 	ft_init_img(data, &(data->item), "./sprites/item1.xpm");
+	data->enemy.img = NULL;
+	ft_init_img(data, &(data->enemy), "./sprites/item1.xpm");
 	data->score.img = NULL;
 	ft_init_img(data, &(data->score), "./sprites/score_screen.xpm");
 	data->win.img = NULL;
 	ft_init_img(data, &(data->win), "./sprites/win.xpm");
 	data->win.width = 256;
-	data->win.height = 256;
+	data->win.height = 128;
 }
 
 void	ft_init_inputs(t_data *data)

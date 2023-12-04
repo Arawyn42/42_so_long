@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 22:48:52 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/03 18:26:04 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/12/04 18:20:12 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,5 @@ void	ft_draw_score(t_data *data)
 	else
 		mlx_string_put(data->mlx, data->window, 20, 43, 0x00006400, score);
 	free(score);
-	ft_printf("\033[A\rScore: %d moves.\n", data->moves);
+	ft_printf("\033[A\r\tScore: %d moves.\n", data->moves);
 }
