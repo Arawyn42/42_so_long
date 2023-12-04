@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 11:50:43 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/04 19:46:43 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/12/04 20:22:00 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_refresh(t_data *data)
 		ft_win_game(data);
 	else if (data->inp.win == 2 && data->inp.anim == 3)
 		ft_enemies_end_anim(data);
-    return (1);
+	return (1);
 }
 
 static void	ft_key_pressed2(int key, t_data *data)
@@ -89,7 +89,8 @@ void	ft_create_window(t_data *data, int w, int h)
 		mlx_loop_hook(data->mlx, &ft_refresh, data);
 		mlx_hook(data->window, KeyPress, KeyPressMask, &ft_key_pressed, data);
 		mlx_hook(data->window, DestroyNotify, NoEventMask, &ft_close, data);
-		mlx_hook(data->window, ResizeRequest, ResizeRedirectMask, &ft_draw_map, data);
+		mlx_hook(data->window, ResizeRequest, ResizeRedirectMask,
+			&ft_draw_map, data);
 		mlx_loop(data->mlx);
 	}
 	else

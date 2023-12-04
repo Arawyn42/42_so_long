@@ -6,13 +6,13 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 00:13:34 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/04 20:01:09 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/12/04 20:22:32 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-static void ft_down_item_anim(t_data *data)
+static void	ft_down_item_anim(t_data *data)
 {
 	if (data->clock == 0)
 		data->inp.anim = 2;
@@ -87,12 +87,12 @@ static void	ft_down_anim(t_data *data)
 static void	ft_down2(t_data *data, t_img img)
 {
 	if (((data->map.map[data->pos.y + 1][data->pos.x] == '0'
-		|| data->map.map[data->pos.y + 1][data->pos.x] == 'D'
+			|| data->map.map[data->pos.y + 1][data->pos.x] == 'D'
 		|| data->map.map[data->pos.y + 1][data->pos.x] == 'E')
 		&& data->inp.down && !data->inp.anim) || data->inp.anim == 1)
 		ft_down_anim(data);
 	if ((data->map.map[data->pos.y + 1][data->pos.x] == 'C'
-			&& data->inp.down && !data->inp.anim) || data->inp.anim == 2)
+		&& data->inp.down && !data->inp.anim) || data->inp.anim == 2)
 		ft_down_item_anim(data);
 	if ((data->map.map[data->pos.y + 1][data->pos.x] == 'M'
 		&& data->inp.down && !data->inp.anim) || data->inp.anim == 3)

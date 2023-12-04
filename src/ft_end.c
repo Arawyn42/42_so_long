@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 22:36:55 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/04 19:47:21 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/12/04 20:19:03 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_close(t_data *data)
 void	ft_lose_game(t_data *data, t_img img)
 {
 	if (data->inp.win == -1 && (data->clock == 12000 || data->clock == 20000
-		|| data->clock == 28000))
+			|| data->clock == 28000))
 		ft_print_img(data, &img, data->pos.x, data->pos.y);
 	if (data->inp.win == -1 && (data->clock == 16000 || data->clock == 24000))
 		ft_draw_above(data, img, data->pos.x, data->pos.y);

@@ -6,13 +6,13 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:14:06 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/04 20:02:17 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/12/04 20:20:09 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-static void ft_up_item_anim(t_data *data)
+static void	ft_up_item_anim(t_data *data)
 {
 	if (data->clock == 10)
 		data->inp.anim = 2;
@@ -87,12 +87,12 @@ static void	ft_up_anim(t_data *data)
 static void	ft_up2(t_data *data, t_img img)
 {
 	if (((data->map.map[data->pos.y - 1][data->pos.x] == '0'
-		|| data->map.map[data->pos.y - 1][data->pos.x] == 'D'
+			|| data->map.map[data->pos.y - 1][data->pos.x] == 'D'
 		|| data->map.map[data->pos.y - 1][data->pos.x] == 'E')
 		&& data->inp.up && !data->inp.anim) || data->inp.anim == 1)
 		ft_up_anim(data);
 	if ((data->map.map[data->pos.y - 1][data->pos.x] == 'C'
-			&& data->inp.up && !data->inp.anim) || data->inp.anim == 2)
+		&& data->inp.up && !data->inp.anim) || data->inp.anim == 2)
 		ft_up_item_anim(data);
 	if ((data->map.map[data->pos.y - 1][data->pos.x] == 'M'
 		&& data->inp.up && !data->inp.anim) || data->inp.anim == 3)
@@ -105,7 +105,7 @@ static void	ft_up2(t_data *data, t_img img)
 		if (data->map.map[data->pos.y][data->pos.x] == 'E'
 			&& data->map.items_count == 0)
 			data->inp.win = 1;
-	}	
+	}
 }
 
 void	ft_up(t_data *data)

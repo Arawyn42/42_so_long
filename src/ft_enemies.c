@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 16:49:39 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/04 19:48:47 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/12/04 20:20:48 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	ft_enemies_anim(t_data *data)
 		while (i < data->map.enemies_count)
 		{
 			ft_print_img(data, &data->enemy, data->map.enemies[i].pos.x,
-					data->map.enemies[i].pos.y);
+				data->map.enemies[i].pos.y);
 			i++;
 		}
 	}
@@ -86,7 +86,7 @@ void	ft_enemies_anim(t_data *data)
 		while (i < data->map.enemies_count)
 		{
 			ft_print_img(data, &data->enemy, data->map.enemies[i].pos.x,
-					data->map.enemies[i].pos.y);
+				data->map.enemies[i].pos.y);
 			i++;
 		}
 	}
@@ -103,7 +103,7 @@ void	ft_enemies_end_anim(t_data *data)
 		while (i < data->map.enemies_count)
 		{
 			ft_print_img(data, &data->enemy, data->map.enemies[i].pos.x,
-					data->map.enemies[i].pos.y);
+				data->map.enemies[i].pos.y);
 			i++;
 		}
 	}
@@ -114,7 +114,7 @@ void	ft_enemies_end_anim(t_data *data)
 		while (i < data->map.enemies_count)
 		{
 			ft_print_img(data, &data->enemy, data->map.enemies[i].pos.x,
-					data->map.enemies[i].pos.y);
+				data->map.enemies[i].pos.y);
 			i++;
 		}
 	}

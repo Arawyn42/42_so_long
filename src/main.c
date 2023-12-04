@@ -6,13 +6,11 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 14:52:07 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/02 11:51:32 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/12/04 20:21:00 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-
-
 
 int	main(int ac, char **av)
 {

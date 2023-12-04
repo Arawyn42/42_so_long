@@ -6,13 +6,13 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 17:14:31 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/04 19:55:32 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/12/04 20:19:21 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-static void ft_left_item_anim(t_data *data)
+static void	ft_left_item_anim(t_data *data)
 {
 	if (data->clock == 10)
 		data->inp.anim = 2;
@@ -87,7 +87,7 @@ static void	ft_left_anim(t_data *data)
 static void	ft_left2(t_data *data, t_img img)
 {
 	if (((data->map.map[data->pos.y][data->pos.x - 1] == '0'
-		|| data->map.map[data->pos.y][data->pos.x - 1] == 'D'
+			|| data->map.map[data->pos.y][data->pos.x - 1] == 'D'
 		|| data->map.map[data->pos.y][data->pos.x - 1] == 'E')
 		&& data->inp.left && !data->inp.anim) || data->inp.anim == 1)
 		ft_left_anim(data);
