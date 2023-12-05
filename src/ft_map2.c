@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 20:21:30 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/04 20:06:58 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/12/05 16:31:01 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,7 @@ void	ft_free_map(t_map *map)
 {
 	ft_free_array(map->map);
 	free(map->items);
-	if (map->enemies_count)
-		free(map->enemies);
+	free(map->enemies);
 }
 
 static void	ft_print_map(t_data data, int display_p)
