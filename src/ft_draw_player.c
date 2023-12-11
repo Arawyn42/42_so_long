@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 22:48:52 by drenassi          #+#    #+#             */
-/*   Updated: 2023/12/04 18:20:12 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/12/11 17:47:48 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ void	ft_draw_above(t_data *data, t_img img, int x, int y)
 
 	cpy = ft_img_cpy(data, img);
 	j = -1;
-	while (++j < data->player.height)
+	while (++j < img.height)
 	{
 		i = -1;
-		while (++i < data->player.width)
+		while (++i < img.width)
 		{
 			cpy_clr = j * cpy.line_length + i * (cpy.bpp / 8);
 			p_clr = j * data->player.line_length + i * (data->player.bpp / 8);
