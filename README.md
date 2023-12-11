@@ -1,5 +1,9 @@
 # <div align="center">⚙️ so_long (a [42](https://42perpignan.fr/) project) ⚙️</div>
 
+## Grade
+[![drenassi's 42 so_long Score](https://badge42.coday.fr/api/v2/clph33bao098101t6vnzqbe17/project/3404633)](https://github.com/Coday-meric/badge42)
+
+## Introduction
 This is the first graphic project in the 42 cursus.
 
 It consists in creating a litle 2D video games with simple rules: there is a map in input, which gives the start position of the player, the position of the collectible items, and the exit position.
@@ -57,6 +61,3 @@ The map must be rectangular, must be surrounded by walls, and must contain the f
 - E for exit
 
 It can't contain more or less than 1 player's start position and 1 exit.
-
-## Grade
-[![drenassi's 42 so_long Score](https://badge42.coday.fr/api/v2/clph33bao098101t6vnzqbe17/project/3404633)](https://github.com/Coday-meric/badge42)
