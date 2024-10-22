@@ -20,15 +20,18 @@ The player has to collect all of the items and to walk on the exit to finish the
 - the score is displayed directly in the game's window;
 - there are enemies and the player can lose if he touches one of them.
 
-**For this project, we can use the following functions:**
+**For this project, we could use the following functions:**
 
 > open, close, read, write, malloc, free, perror, strerror, exit
+<br>
 > math.h library
+<br>
 > MiniLibX library
 
 All other existing functions or libraries are forbidden, and we have to use the given version of the MiniLibX, which is a small graphic library for graphic projects at 42 School.
+<br><br>
 
-## <div align="center">💻 Usage</div>
+## <div align="center">💾 Installation</div>
 ### <div align="center">Requirements</div>
 This project will only work on linux distributions.
 Type the following command on a bash terminal to install the prerequisites:
@@ -44,8 +47,9 @@ git clone https://github.com/Arawyn42/42_so_long
 ```bash
 cd 42_so_long && make && make clean
 ```
+<br><br>
 
-## <div align="center">How to use ?</div>
+## <div align="center">💻 Usage</div>
 ```bash
 ./so_long maps/[map].ber
 ```
