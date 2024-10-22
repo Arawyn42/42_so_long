@@ -1,7 +1,7 @@
 <div align="center">
   <h1>⚙️ so_long (a <a href="https://42perpignan.fr/">42</a> project) ⚙️</h1>
   <img src="preview.gif" alt="Preview">
-  <p>Subject (in french): <a href="fr.subject.pdf">fr.subject.pdf</a></p>
+  <p><b>Subject (in french):</b> <a href="fr.subject.pdf">fr.subject.pdf</a></p>
 </div>
 <div align="center">
   <h2>✅ Grade</h2>
