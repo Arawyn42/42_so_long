@@ -22,13 +22,11 @@ The player has to collect all of the items and to walk on the exit to finish the
 
 **For this project, we could use the following functions:**
 
-> open, close, read, write, malloc, free, perror, strerror, exit
+- open, close, read, write, malloc, free, perror, strerror, exit
+- math.h library
+- MiniLibX library
 <br>
-> math.h library
-<br>
-> MiniLibX library
-
-All other existing functions or libraries are forbidden, and we have to use the given version of the MiniLibX, which is a small graphic library for graphic projects at 42 School.
+All other existing functions or libraries were forbidden, and we had to use the given version of the MiniLibX, which is a small graphic library for C graphic projects at 42 School.
 <br><br>
 
 ## <div align="center">💾 Installation</div>
@@ -47,7 +45,7 @@ git clone https://github.com/Arawyn42/42_so_long
 ```bash
 cd 42_so_long && make && make clean
 ```
-<br><br>
+<br>
 
 ## <div align="center">💻 Usage</div>
 ```bash
