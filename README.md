@@ -1,9 +1,14 @@
-# <div align="center">⚙️ so_long (a [42](https://42perpignan.fr/) project) ⚙️</div>
+<div align="center">
+  <h1>⚙️ so_long (a <a href="https://42perpignan.fr/">42</a> project) ⚙️</h1>
+  <img src="preview.gif" alt="Preview">
+  <p>Subject (in french): <a href="fr.subject.pdf">fr.subject.pdf</a></p>
+</div>
+<div align="center">
+  <h2>✅ Grade</h2>
+  <img src="grade.png" alt="Grade">
+</div><br>
 
-## Grade
-[![drenassi's 42 so_long Score](https://badge42.coday.fr/api/v2/clph33bao098101t6vnzqbe17/project/3404633)](https://github.com/Coday-meric/badge42)
-
-## Introduction
+## <div align="center">📄 Introduction</div>
 This is the first graphic project in the 42 cursus.
 
 It consists in creating a litle 2D video games with simple rules: there is a map in input, which gives the start position of the player, the position of the collectible items, and the exit position.
@@ -23,30 +28,24 @@ The player has to collect all of the items and to walk on the exit to finish the
 
 All other existing functions or libraries are forbidden, and we have to use the given version of the MiniLibX, which is a small graphic library for graphic projects at 42 School.
 
-## How to install ?
-### Requirements
+## <div align="center">💻 Usage</div>
+### <div align="center">Requirements</div>
 This project will only work on linux distributions.
 Type the following command on a bash terminal to install the prerequisites:
 ```bash
 sudo apt-get install bc gcc make xorg libxext-dev libbsd-dev
 ```
 
-### Installation
+### <div align="center">Installation</div>
 Type the following commands on a bash terminal to install the program:
 ```bash
 git clone https://github.com/Arawyn42/42_so_long
 ```
 ```bash
-cd 42_so_long
-```
-```bash
-make
-```
-```bash
-make clean
+cd 42_so_long && make && make clean
 ```
 
-## How to use ?
+## <div align="center">How to use ?</div>
 ```bash
 ./so_long maps/[map].ber
 ```
